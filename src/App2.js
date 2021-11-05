@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Card from "react-bootstrap/Card"
 // App
 // I want to make a question components where I can send the answers through json to the backend
 // input is going to be integers and booleans
@@ -16,14 +17,19 @@ function Question(props) {
 
   if (props.answerType === "integer") {
     return (
-      <div>
-        <p>{props.questionText}</p>
-        <input
-          type="number"
-          value={answer}
-          onChange={(e) => setAnswer(e.target.value)}
-        />
-      </div>
+        // <div className="card">
+        <div className="card">
+          <div className="card-body">
+          <div className="card-text">
+            <p>{props.questionText}</p>
+            <input
+              type="number"
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
+            />
+          </div>
+        </div>
+        </div>
     );
   } else {
     return (
