@@ -57,20 +57,55 @@ export default function App() {
       questionText: "Who is CEO of Tesla?",
       answerType: "boolean",
     },
+    {
+      questionText: "Who is CEO of Tesla?",
+      answerType: "boolean",
+    },
+    {
+      questionText: "Who is CEO of Tesla?",
+      answerType: "integer",
+    },
   ];
-  const [answer1, setQuestionsAnswered1] = useState(0);
-  const [answer2, setQuestionsAnswered2] = useState(0);
-  const [answer3, setQuestionsAnswered3] = useState(0);
-  const [answer4, setQuestionsAnswered4] = useState(0);
+  const [answer1, setQuestionsAnswered1] = useState("unanswered");
+  const [answer2, setQuestionsAnswered2] = useState("unanswered");
+  const [answer3, setQuestionsAnswered3] = useState("unanswered");
+  const [answer4, setQuestionsAnswered4] = useState("unanswered");
+  var checked = () => {
+    if (
+      answer1 === "unanswered" ||
+      answer2 === "unanswered" ||
+      answer3 === "unanswered" ||
+      answer4 === "unanswered"
+    ) {
+      return false;
+    }
 
-  // this returns an array of question components
-  return (
-    <div className="app">
-      {questions.map((q) => {
+    // this returns an array of question components
+    return (
+      <div className="app">
         return (
-          <Question questionText={q.questionText} answerType={q.answerType} />
-        );
-      })}
-    </div>
-  );
+        <Question
+          answer1={answer1}
+          questionText={questions[0].questionText}
+          answerType={questions[0].answerType}
+        />
+        <Question
+          answer2={answer2}
+          questionText={questions[1].questionText}
+          answerType={questions[1].answerType}
+        />
+        <Question
+          answer3={answer3}
+          questionText={questions[2].questionText}
+          answerType={questions[2].answerType}
+        />
+        <Question
+          answer4={answer4}
+          questionText={questions[3].questionText}
+          answerType={questions[3].answerType}
+        />
+        {/* <button onClick={null ? checked() : SubmitEvent()}>Submit</button> */}
+      </div>
+    );
+  };
 }
