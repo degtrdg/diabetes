@@ -3,10 +3,15 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App2";
 import reportWebVitals from "./reportWebVitals";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Card>
+      <Card.Title>
+        <h1>Hello</h1>
+      </Card.Title>
+    </Card>
   </React.StrictMode>,
   document.getElementById("root")
 );
