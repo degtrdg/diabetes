@@ -12,14 +12,9 @@ function Question(props) {
   // pass state to the parent
   // each question will have an answer
   // you're alowed to submit the form
-  const [answer, setAnswer] = useState(0);
+  const [answer, setAnswer] = useState("unanswered");
+
   if (props.answerType === "integer") {
-    [answer, setAnswer] = useState(0);
-  } else {
-    [answer, setAnswer] = useState(false);
-  }
-  if (props.answerType === "integer") {
-    setAnswer(0);
     return (
       <div>
         <p>{props.questionText}</p>
@@ -35,14 +30,14 @@ function Question(props) {
       <div>
         <h1>{props.questionText}</h1>
         <input
-          type="checkbox"
-          name="true"
+          type="radio"
+          name="bool"
           value={true}
           onChange={(e) => setAnswer(e.target.value)}
         />
         <input
-          type="checkbox"
-          name="false"
+          type="radio"
+          name="bool"
           value={false}
           checked="true"
           onChange={(e) => setAnswer(e.target.value)}
@@ -63,12 +58,18 @@ export default function App() {
       answerType: "boolean",
     },
   ];
+  const [answer1, setQuestionsAnswered1] = useState(0);
+  const [answer2, setQuestionsAnswered2] = useState(0);
+  const [answer3, setQuestionsAnswered3] = useState(0);
+  const [answer4, setQuestionsAnswered4] = useState(0);
 
   // this returns an array of question components
   return (
     <div className="app">
       {questions.map((q) => {
-        <Question questionText={q.questionText} answerType={q.answerType} />;
+        return (
+          <Question questionText={q.questionText} answerType={q.answerType} />
+        );
       })}
     </div>
   );
