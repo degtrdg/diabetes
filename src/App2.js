@@ -17,37 +17,64 @@ function Question(props) {
 
   if (props.answerType === "integer") {
     return (
-        // <div className="card">
-        <div className="card">
-          <div className="card-body">
-          <div className="card-text">
-            <p>{props.questionText}</p>
-            <input
-              type="number"
-              value={answer}
-              onChange={(e) => setAnswer(e.target.value)}
-            />
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div className="col-md-6">
+          <div className="row">
+            <div className="card text-center">
+              <div className="card-body">
+                <div className="card-text pb-3 pt-3">
+                  <h3>{props.questionText}</h3>
+                  <br />
+                  <input
+                    type="number"
+                    value={answer}
+                    onChange={(e) => setAnswer(e.target.value)}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        </div>
+      </div>
     );
   } else {
     return (
-      <div>
-        <h1>{props.questionText}</h1>
-        <input
-          type="radio"
-          name="bool"
-          value={true}
-          onChange={(e) => setAnswer(e.target.value)}
-        />
-        <input
-          type="radio"
-          name="bool"
-          value={false}
-          checked="true"
-          onChange={(e) => setAnswer(e.target.value)}
-        />
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div className="col-6">
+          <div className="row">
+            <div className="card text-center">
+              <div className="card-body">
+                <div className="card-text pt-3">
+                  <h3>{props.questionText}</h3>
+                  <br />
+                  <div className="row pb-3">
+                    <div className="col-6">
+                      <div>
+                        <input
+                          type="radio"
+                          name="bool"
+                          value={true}
+                          onChange={(e) => setAnswer(e.target.value)}
+                        />
+                      </div>
+                    </div>
+                    <div className="col-6">
+                      <div className="pr-3">
+                        <input
+                          type="radio"
+                          name="bool"
+                          value={false}
+                          checked="true"
+                          onChange={(e) => setAnswer(e.target.value)}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
