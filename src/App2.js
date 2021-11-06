@@ -15,11 +15,11 @@ function Question(props) {
 
   var answer = props.answer;
   var setAnswer = props.setQuestion;
-//  [answer, setAnswer] = useState("unanswered");
+  //  [answer, setAnswer] = useState("unanswered");
 
   if (props.answerType === "integer") {
     return (
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <div style={{ display: "flex", justifyContent: "center" }}>
         <div className="col-6 pb-3 pt-3">
           <div className="row">
             <div className="card text-center">
@@ -32,8 +32,7 @@ function Question(props) {
                     value={answer}
                     onChange={(e) => {
                       setAnswer(e.target.value);
-                    }
-                    }
+                    }}
                   />
                 </div>
               </div>
@@ -44,11 +43,15 @@ function Question(props) {
     );
   } else {
     return (
-      <div style={{ display: 'flex', justifyContent: 'center' }}> 
-      {/*added inline css styling, flex is basically any element, but it is much more customizable in terms of placement, so it was nice in this case to just be able to place it in the middle. JustifyContent is self-explanatory*/}
-        <div className="col-6 pt-3 pb-3"> {/*Basically there are 12 columns on a webpage for react, so I just said that I want my card to take up 6 of these 12. That means there
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        {/*added inline css styling, flex is basically any element, but it is much more customizable in terms of placement, so it was nice in this case to just be able to place it in the middle. JustifyContent is self-explanatory*/}
+        <div className="col-6 pt-3 pb-3">
+          {" "}
+          {/*Basically there are 12 columns on a webpage for react, so I just said that I want my card to take up 6 of these 12. That means there
         are 3 empty columns on each side since we justified it to the middle.*/}
-          <div className="row"> {/* added a row next */}
+          <div className="row">
+            {" "}
+            {/* added a row next */}
             <div className="card text-center">
               <div className="card-body">
                 <div className="card-text pt-3">
@@ -90,16 +93,22 @@ function Question(props) {
 
 function SubmitButton(props) {
   var getSubmit = () => {
-    if(props.answer1 !== "unanswered"){
+    if (props.answer1 !== "unanswered") {
       console.log(props.answer1);
-  }
-  else console.log("unanswered");
-}
+    } else console.log("unanswered");
+  };
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', paddingTop: "0.6em", paddingBottom: "1.5em" }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        paddingTop: "0.6em",
+        paddingBottom: "1.5em",
+      }}
+    >
       <button onClick={getSubmit}>Submit</button>
     </div>
-  )
+  );
 }
 export default function App() {
   // Make questions with types
@@ -134,7 +143,7 @@ export default function App() {
     ) {
       return false;
     }
-  }
+  };
 
   // this returns an array of question components
   return (
@@ -160,9 +169,7 @@ export default function App() {
         questionText={questions[3].questionText}
         answerType={questions[3].answerType}
       />
-      <SubmitButton
-      answer1={answer1}
-      />
+      <SubmitButton answer1={answer1} />
     </div>
   );
 }
