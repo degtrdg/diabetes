@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+//For connection to backend
+
 // App
 // I want to make a question components where I can send the answers through json to the backend
 // input is going to be integers and booleans
@@ -64,7 +66,6 @@ function Question(props) {
                           type="radio"
                           name={props.questionText}
                           value={false}
-                          checked="false"
                           onChange={(e) => setAnswer(e.target.value)}
                         />
                       </div>
@@ -75,7 +76,6 @@ function Question(props) {
                           type="radio"
                           name={props.questionText}
                           value={false}
-                          checked="fale"
                           onChange={(e) => setAnswer(e.target.value)}
                         />
                       </div>
@@ -93,8 +93,21 @@ function Question(props) {
 
 function SubmitButton(props) {
   var getSubmit = () => {
-    if (props.answer1 !== "unanswered") {
-      console.log(props.answer1);
+    if (props.checked()) {
+      console.log("The answers are ready!");
+      // send the answers to the backend
+      // use props.answersArr
+      // idk if this will actually work; need to make endpoint for /result
+      fetch("/result", {
+        method: "POST",
+        cache: "no-cache",
+        headers: {
+          content_type: "application/json",
+        },
+        body: JSON.stringify(props.answersArr),
+      }).then((response) => {
+        return response.json();
+      });
     } else console.log("unanswered");
   };
   return (
@@ -134,6 +147,7 @@ export default function App() {
   const [answer2, setQuestionsAnswered2] = useState("unanswered");
   const [answer3, setQuestionsAnswered3] = useState("unanswered");
   const [answer4, setQuestionsAnswered4] = useState("unanswered");
+  const answersArr = [answer1, answer2, answer3, answer4];
   var checked = () => {
     if (
       answer1 === "unanswered" ||
@@ -142,6 +156,8 @@ export default function App() {
       answer4 === "unanswered"
     ) {
       return false;
+    } else {
+      return true;
     }
   };
 
@@ -156,20 +172,26 @@ export default function App() {
       />
       <Question
         answer={answer2}
+        setQuestion={setQuestionsAnswered2}
+        questionText={questions[0].questionText}
         questionText={questions[1].questionText}
         answerType={questions[1].answerType}
       />
       <Question
         answer={answer3}
+        setQuestion={setQuestionsAnswered3}
+        questionText={questions[0].questionText}
         questionText={questions[2].questionText}
         answerType={questions[2].answerType}
       />
       <Question
         answer={answer4}
+        setQuestion={setQuestionsAnswered4}
+        questionText={questions[0].questionText}
         questionText={questions[3].questionText}
         answerType={questions[3].answerType}
       />
-      <SubmitButton answer1={answer1} />
+      <SubmitButton checked={checked} answersArr={answersArr} />
     </div>
   );
 }
