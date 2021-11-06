@@ -17,7 +17,7 @@ function Question(props) {
   if (props.answerType === "integer") {
     return (
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <div className="col-md-6 pb-3 pt-3">
+        <div className="col-6 pb-3 pt-3">
           <div className="row">
             <div className="card text-center">
               <div className="card-body">
@@ -40,7 +40,7 @@ function Question(props) {
     return (
       <div style={{ display: 'flex', justifyContent: 'center' }}> {/*added inline css styling, flex is basically any element, but it is much more customizable in terms
       of placement, so it was nice in this case to just be able to place it in the middle. JustifyContent is self-explanatory*/}
-        <div className="col-6"> {/*Basically there are 12 columns on a webpage for react, so I just said that I want my card to take up 6 of these 12. That means there
+        <div className="col-6 pt-3 pb-3"> {/*Basically there are 12 columns on a webpage for react, so I just said that I want my card to take up 6 of these 12. That means there
         are 3 empty columns on each side since we justified it to the middle.*/}
           <div className="row"> {/* added a row next */}
             <div className="card text-center">
@@ -53,8 +53,9 @@ function Question(props) {
                       <div>
                         <input
                           type="radio"
-                          name="bool"
-                          value={true}
+                          name={props.questionText}
+                          value={false}
+                          checked="false"
                           onChange={(e) => setAnswer(e.target.value)}
                         />
                       </div>
@@ -63,9 +64,9 @@ function Question(props) {
                       <div className="pr-3">
                         <input
                           type="radio"
-                          name="bool"
+                          name={props.questionText}
                           value={false}
-                          checked="true"
+                          checked="fale"
                           onChange={(e) => setAnswer(e.target.value)}
                         />
                       </div>
@@ -80,6 +81,16 @@ function Question(props) {
     );
   }
 }
+
+function SubmitButton(){
+  var getSubmit = () => {
+    console.log("pls submit");
+  }
+  return(
+        <button onClick={getSubmit}>Submit</button>
+        // <button onClick={checked ? SubmitEvent() : SubmitEvent()}>Submit</button>
+  )
+}
 export default function App() {
   // Make questions with types
   const questions = [
@@ -91,54 +102,55 @@ export default function App() {
       questionText: "Who is CEO of Tesla?",
       answerType: "boolean",
     },
-    // {
-    //   questionText: "Who is CEO of Tesla?",
-    //   answerType: "boolean",
-    // },
-    // {
-    //   questionText: "Who is CEO of Tesla?",
-    //   answerType: "integer",
-    // },
+    {
+      questionText: "Who is CEO of Amazon?",
+      answerType: "boolean",
+    },
+    {
+      questionText: "Who is CEO of UTD?",
+      answerType: "integer",
+    },
   ];
   const [answer1, setQuestionsAnswered1] = useState("unanswered");
   const [answer2, setQuestionsAnswered2] = useState("unanswered");
-  // const [answer3, setQuestionsAnswered3] = useState("unanswered");
-  // const [answer4, setQuestionsAnswered4] = useState("unanswered");
-  // var checked = () => {
-  //   if (
-  //     answer1 === "unanswered" ||
-  //     answer2 === "unanswered" 
-  //     // answer3 === "unanswered" ||
-  //     // answer4 === "unanswered"
-  //   ) {
-  //     return false;
-  //   }
-  //   }
+  const [answer3, setQuestionsAnswered3] = useState("unanswered");
+  const [answer4, setQuestionsAnswered4] = useState("unanswered");
+  var checked = () => {
+    if (
+      answer1 === "unanswered" ||
+      answer2 === "unanswered" ||
+      answer3 === "unanswered" ||
+      answer4 === "unanswered"
+    ) {
+      return false;
+    }
+  }
 
     // this returns an array of question components
     return (
       <div className="app">
         <Question
-          answer1={answer1}
+          answer={answer1}
           questionText={questions[0].questionText}
           answerType={questions[0].answerType}
         />
         <Question
-          answer2={answer2}
+          answer={answer2}
           questionText={questions[1].questionText}
           answerType={questions[1].answerType}
         />
-        {/* <Question
-          answer3={answer3}
+        <Question
+          answer={answer3}
           questionText={questions[2].questionText}
           answerType={questions[2].answerType}
         />
         <Question
-          answer4={answer4}
+          answer={answer4}
           questionText={questions[3].questionText}
           answerType={questions[3].answerType}
-        /> */}
-        {/* <button onClick={null ? checked() : SubmitEvent()}>Submit</button> */}
+        />
+        <SubmitButton
+        />
       </div>
     );
 }
