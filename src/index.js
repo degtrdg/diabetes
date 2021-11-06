@@ -7,15 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(
   <React.StrictMode>
-<<<<<<< HEAD
     <App />
-=======
-    <Card>
-      <Card.Title>
-        <h1>Hello</h1>
-      </Card.Title>
-    </Card>
->>>>>>> 6428670904f528164c9eff1521fffbf409ab667f
   </React.StrictMode>,
   document.getElementById("root")
 );
