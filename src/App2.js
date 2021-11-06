@@ -39,15 +39,17 @@ function Question(props) {
     );
   } else {
     return (
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <div className="col-6">
-          <div className="row">
+      <div style={{ display: 'flex', justifyContent: 'center' }}> {/*added inline css styling, flex is basically any element, but it is much more customizable in terms
+      of placement, so it was nice in this case to just be able to place it in the middle. JustifyContent is self-explanatory*/}
+        <div className="col-6"> {/*Basically there are 12 columns on a webpage for react, so I just said that I want my card to take up 6 of these 12. That means there
+        are 3 empty columns on each side since we justified it to the middle.*/}
+          <div className="row"> {/* added a row next */}
             <div className="card text-center">
               <div className="card-body">
                 <div className="card-text pt-3">
                   <h3>{props.questionText}</h3>
                   <br />
-                  <div className="row pb-3">
+                  <div className="row pb-3"> 
                     <div className="col-6">
                       <div>
                         <input
