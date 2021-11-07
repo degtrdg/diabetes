@@ -65,7 +65,7 @@ function Question(props) {
                         <input
                           type="radio"
                           name={props.questionText}
-                          value={false}
+                          value={true}
                           onChange={(e) => setAnswer(e.target.value)}
                         />
                       </div>
@@ -98,7 +98,7 @@ function SubmitButton(props) {
       // send the answers to the backend
       // use props.answersArr
       // idk if this will actually work; need to make endpoint for /result
-      fetch("/result", {
+      fetch('/result', {
         method: "POST",
         cache: "no-cache",
         headers: {
@@ -107,7 +107,7 @@ function SubmitButton(props) {
         body: JSON.stringify(props.answersArr),
       }).then((response) => {
         return response.json();
-      });
+      }).then(function(response) {console.log(response)});
     } else console.log("unanswered");
   };
   return (
