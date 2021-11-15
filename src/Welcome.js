@@ -23,19 +23,26 @@ export default function Welcome() {
                     marginRight: "2vw",
                   }}
                 >
-                  {/* <a
-                    href="/about"
-                    className="btn btn-primary"
-                    style={{ paddingLeft: "30px", paddingRight: "30px" }}
-                  >
-                    About
-                  </a> */}
                   <a
                     href="/quiz"
                     className="btn btn-primary"
                     style={{ paddingLeft: "30px", paddingRight: "30px" }}
                   >
                     Take the Quiz!
+                  </a>
+                  <a
+                    href="/about"
+                    className="btn btn-warning"
+                    style={{ paddingLeft: "30px", paddingRight: "30px" }}
+                  >
+                    Learn More About the Project
+                  </a>
+                  <a
+                    href="/contact"
+                    className="btn btn-danger"
+                    style={{ paddingLeft: "30px", paddingRight: "30px" }}
+                  >
+                    Contact the Developers :)
                   </a>
                 </div>
               </div>
@@ -52,24 +59,22 @@ export default function Welcome() {
           paddingTop: "40px",
         }}
       >
-        <h2>About</h2>
+        <h1 className="text-center">Warning!</h1>
+        <br />
+        <h4 className="text-center">
+          This project is not to be used for medical advice.
+        </h4>
+        <br />
         <p>
-          What was used? Scikit learn, numpy, pandas (data frames), React,
-          Bootstrap, Flask. Languages: Javascript, Python, HTML,CSS
+          This project is intended to be used as a tool for learning and to showcase the power of machine learning.
+          Neither of the developers are affiliated with any medical organization, and do not claim to have any medical knowledge.
         </p>
         <p>
-          What was required? Tuned parameters for the model and increased
-          accuracy by 30%. Chose between various clasifiers and decided on a
-          decision tree algorithm for best performance. Cleaned data and used
-          numpy and pandas to give model proper data. This is a machine learning
-          project that uses data to predict the likelihood of whether a person
-          has a disease. The data is from the Heart Disease Dataset from the UCI
-          Machine Learning Repository.
+          If you are worried about your health, please consult with your doctor and ensure that you are taking the proper precautions.
         </p>
         <p>
-          Note: This is not actual medical advice. Extenutating circumstances to
-          take into consideration since BMI is used is if you are a child,
-          pregnant, or have a high amount of muscle mass.
+          Note: This project uses calculations for BMI.
+          Athletes with high levels of muscle mass, pregnant women, and children may have abnormal BMI's, and thus results may be affected negatively.
         </p>
       </div>
     </div>

@@ -29,13 +29,13 @@ function Question(props) {
                   <h3>{props.questionText}</h3>
                   <p>
                     {props.questionText ===
-                    "What is your resting heart rate (in bpm)?"
+                      "What is your resting heart rate (in bpm)?"
                       ? "To measure, count heartbeats for 10 seconds, and multiply by 6."
                       : ""}
                   </p>
                   <p>
                     {props.questionText ===
-                    "What type of chest pain do you experience?"
+                      "What type of chest pain do you experience?"
                       ? "\n1 = Pain from exercise/stress, \n2 = Pain while at rest, \n3 = Other type of abnormal pain"
                       : ""}
                   </p>
@@ -61,11 +61,9 @@ function Question(props) {
       <div style={{ display: "flex", justifyContent: "center" }}>
         {/*added inline css styling, flex is basically any element, but it is much more customizable in terms of placement, so it was nice in this case to just be able to place it in the middle. JustifyContent is self-explanatory*/}
         <div className="col-6 pt-3 pb-3">
-          {" "}
           {/*Basically there are 12 columns on a webpage for react, so I just said that I want my card to take up 6 of these 12. That means there
         are 3 empty columns on each side since we justified it to the middle.*/}
           <div className="row">
-            {" "}
             {/* added a row next */}
             <div className="card text-center">
               <div className="card-body">
