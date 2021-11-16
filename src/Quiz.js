@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import quizbg from "./images/quizbg.jpg";
 //For connection to backend
 
 // I want to make a question components where I can send the answers through json to the backend
@@ -23,7 +24,7 @@ function Question(props) {
       <div style={{ display: "flex", justifyContent: "center" }}>
         <div className="col-6 py-3">
           <div className="row">
-            <div className="card text-center">
+            <div className="card text-center" style={{ backgroundImage: `url(${quizbg})` }}>
               <div className="card-body">
                 <div className="card-text py-3">
                   <h3>{props.questionText}</h3>
@@ -65,7 +66,7 @@ function Question(props) {
         are 3 empty columns on each side since we justified it to the middle.*/}
           <div className="row">
             {/* added a row next */}
-            <div className="card text-center">
+            <div className="card text-center" style={{ backgroundImage: `url(${quizbg})` }}>
               <div className="card-body">
                 <div className="card-text pt-3">
                   <h3>{props.questionText}</h3>
