@@ -1,11 +1,12 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import medbg from "./images/med-bg.jpg";
 
 export default function Welcome() {
   return (
     <div style={{ justifyContent: "center" }}>
       <div
-        style={{ display: "flex", justifyContent: "center" }}
+        style={{ display: "flex", justifyContent: "center", backgroundImage: `url(${medbg})` }}
         className="pt-5 pb-5"
       >
         <h1>Machine Learning Heart Disease Predictor</h1>
@@ -42,7 +43,7 @@ export default function Welcome() {
                     className="btn btn-danger"
                     style={{ paddingLeft: "30px", paddingRight: "30px" }}
                   >
-                    Contact the Developers :)
+                    About the Developers :)
                   </a>
                 </div>
               </div>
