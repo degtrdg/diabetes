@@ -4,7 +4,7 @@ import pickle
 import os 
 port = int(os.environ.get('PORT', 5000)) 
 
-#app = Flask(__name__)
+app = Flask(__name__)
 #change the static_folder
 #api = Api(app)
 
