@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 #api.add_resource(HelloApiHandler, '/flask/hello')
 
-@app.route('/result', methods=['GET', 'POST'])
+@app.route('/result', methods=['POST'])
 def return_data():
     # Get the data from the request
     #data = request.get_json()
