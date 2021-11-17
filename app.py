@@ -33,7 +33,7 @@ def return_data():
         prediction = 1
 
     response = str(prediction)
-    respone.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
 def extractData(arr):
