@@ -122,7 +122,7 @@ function SubmitButton(props) {
       // send the answers to the backend
       // use props.answersArr
       // idk if this will actually work; need to make endpoint for /result
-      fetch("https://heart-disease-proj.herokuapp.com/result", {
+      fetch("/result", {
         method: "POST",
         cache: "no-cache",
         headers: {
