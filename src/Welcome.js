@@ -38,13 +38,6 @@ export default function Welcome() {
                   >
                     Learn More About the Project
                   </a>
-                  <a
-                    href="/contact"
-                    className="btn btn-danger"
-                    style={{ paddingLeft: "30px", paddingRight: "30px" }}
-                  >
-                    About the Developers :)
-                  </a>
                 </div>
               </div>
             </div>
@@ -78,6 +71,6 @@ export default function Welcome() {
           Athletes with high levels of muscle mass, pregnant women, and children may have abnormal BMI's, and thus results may be affected negatively.
         </p>
       </div>
-    </div>
+    </div >
   );
 }
