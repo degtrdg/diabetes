@@ -31,7 +31,10 @@ def return_data():
 
     if bmi > 30:
         prediction = 1
-    return str(prediction)
+
+    response = str(prediction)
+    respone.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 def extractData(arr):
     arr = arr.decode()
