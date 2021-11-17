@@ -1,19 +1,19 @@
 from flask import Flask, jsonify, request, send_from_directory
+from flask_cors import CORS, cross_origin
 import pickle
 #from flask_restful import Api
+import os 
+port = int(os.environ.get('PORT', 5000)) 
 
-#app = Flask(__name__)
+app = Flask(__name__)
+CORS(app, support_credentials=True)
 #change the static_folder
-app = Flask(__name__, static_url_path='', static_folder='public')
 #api = Api(app)
-
-@app.route('/', defaults={'path':''} )
-def serve(path):
-    return send_from_directory(app.static_folder,'index.html')
 
 #api.add_resource(HelloApiHandler, '/flask/hello')
 
-@app.route('/result', methods=['GET', 'POST'])
+@app.route('/result', methods=['POST'])
+@cross_origin(supports_credentials=True)
 def return_data():
     # Get the data from the request
     #data = request.get_json()
@@ -34,7 +34,9 @@ def return_data():
 
     if bmi > 30:
         prediction = 1
-    return str(prediction)
+
+    response = str(prediction)
+    return response
 
 def extractData(arr):
     arr = arr.decode()
@@ -53,4 +55,5 @@ def calculateBMI(height, weight):
     return weight / (height * height) * 703
 
 if __name__ == '__main__':
-    app.run(debug = True, host='0.0.0.0', port=105)
+    app.run(host='0.0.0.0', port=port)
+
