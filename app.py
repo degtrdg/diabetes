@@ -1,6 +1,9 @@
 from flask import Flask, jsonify, request, send_from_directory
 import pickle
 #from flask_restful import Api
+import os 
+from pml import app 
+port = int(os.environ.get('PORT', 5000)) 
 
 #app = Flask(__name__)
 #change the static_folder
@@ -53,5 +56,5 @@ def calculateBMI(height, weight):
     return weight / (height * height) * 703
 
 if __name__ == '__main__':
-    app.run()
-    
+    app.run(port=port)
+
