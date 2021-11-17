@@ -1,7 +1,17 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory
 import pickle
+from flask_restful import Api
 
-app = Flask(__name__)
+#app = Flask(__name__)
+#change the static_folder
+app = Flask(__name__, static_url_path='', static_folder='public')
+#api = Api(app)
+
+@app.route('/', methods=['GET', 'POST'])
+def serve(path):
+    return send_from_directory(app.static_folder,'index.html')
+
+#api.add_resource(HelloApiHandler, '/flask/hello')
 
 @app.route('/result', methods=['GET', 'POST'])
 def return_data():
